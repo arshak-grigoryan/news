@@ -13,13 +13,14 @@ import './news.css';
 const News = ({section}) => {
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState([]);
-    const {results} = useFetch(urls[section]);
+
+    const { results } = useFetch(urls[section]);
 
     useEffect(() => {
         if(results) {
             const first5 = results.filter((_, i) => i < 5)
             setData(first5)
-            setIsLoading(false)            
+            setIsLoading(false)
         }
     }, [results]);
 
@@ -41,12 +42,12 @@ const News = ({section}) => {
     return (
         isLoading
         ?
-        <Loading/>
+        <Loading />
         :
         <div className='newsWrapper'>
             <div className='news'>
                 {news}
-            </div>            
+            </div>
         </div>
     )
 }

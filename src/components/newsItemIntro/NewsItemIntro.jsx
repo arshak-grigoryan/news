@@ -7,8 +7,8 @@ import './newsItemIntro.scss';
 
 const NewsItemIntro = ({
     id,
-    title, 
-    imgUrl, 
+    title,
+    imgUrl,
     text,
     section
 }) => {
@@ -20,13 +20,13 @@ const NewsItemIntro = ({
         dispatch(newNewsItem({id, title, imgUrl, text}))
         history.push(`${section}/${id}`)
     }
-    
+
     return (
-        <div className='newsItemIntro'>
-            { 
-                imgUrl && <img src={imgUrl} alt='img'onClick={onNewsItemIntroClick}/>
+        <div className='newsItemIntro' onClick={onNewsItemIntroClick}>
+            {
+                imgUrl && <img src={imgUrl} alt='img'/>
             }
-            <h2 onClick={onNewsItemIntroClick}>{title}</h2>
+            <h2>{title}</h2>
         </div>
     )
 }
