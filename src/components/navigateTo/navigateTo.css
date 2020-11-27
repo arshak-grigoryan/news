@@ -1,0 +1,10 @@
+.navigateTo {
+    text-align: center;
+}
+label > input, label > select {
+  margin: 0 5px
+}
+label, select, button {
+    padding: 5px;
+    cursor: pointer;
+}

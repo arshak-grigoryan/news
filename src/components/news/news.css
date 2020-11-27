@@ -1,0 +1,9 @@
+.newsWrapper {
+    width: 100%;
+}
+.news {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
