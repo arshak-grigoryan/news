@@ -4,14 +4,9 @@ import { useHistory } from 'react-router-dom';
 const ListenHistory = () => {
     const history = useHistory();
 
-    useEffect(() => {
-      history.History((...args) => {
-        console.log(...args);
-        console.log(history.length);
-      });
-    }, []);
+    console.log(history, 'live')
   
-    return null;
+    return <div></div>;
 }
 
 export default ListenHistory

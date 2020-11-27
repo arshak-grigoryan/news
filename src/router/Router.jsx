@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-// import ListenHistory from '../components/history/ListenHistory';
+import ListenHistory from '../components/history/ListenHistory';
 import Navigation from '../components/navigation/Navigation';
 import NavigateTo from '../components/navigateTo/NavigateTo';
 import News from '../components/news/News';
