@@ -4,31 +4,31 @@ import useMount from './useMount';
 
 const cache = new Map()
 
+export const cachableFetch = async (url) => {
+    if (cache.has(url)) {
+        return cache.get(url);
+    }
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        cache.set(url, data);
+        return data;
+    } catch (err) {
+        console.error(err)
+    }
+}
+
 const useFetch = (url) => {
-    const [data, setData] = useState([])
+    const [data, setData] = useState({});
 
     useMount(() => {
-        if (cache.has(url)) {
-            console.log('cached fetch')
-            const data = cache.get(url)
-            setData(data)
-            return
-        }        
         (async () => {
-            try {
-                console.log('new fetch')
-                const res = await fetch(url)
-                const data = await res.json()
-                cache.set(url, data)
-                setData(data)
-                return
-            } catch(err) {
-                console.error(err)
-            }
+           const result = await cachableFetch(url);
+           setData(result);
         })();
     });
 
-    return data
+    return data;
 }
 
 export default useFetch
