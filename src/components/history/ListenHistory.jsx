@@ -18,7 +18,7 @@ const ListenHistory = () => {
   console.log('ListenHistory')
 
   return (
-    <div className='listenHistory'>
+    <div className='listenHistory' style={{width: "10%"}}>
       <ul>
         {
           allHistory.map((path,i) => {

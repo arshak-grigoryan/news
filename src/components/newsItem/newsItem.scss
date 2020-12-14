@@ -1,11 +1,12 @@
 .newsItem {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    width: 100%;
+    align-items: flex-start;
+    width: 90%;
     padding: 2%;
     img {
         width: 30%;
+        object-fit: contain;
     }
     .info {
         h2 {
