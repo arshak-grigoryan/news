@@ -1,5 +1,9 @@
 import React, { lazy, Fragment } from "react";
-import { BrowserRouter, Redirect, Switch } from "react-router-dom";
+import {
+  BrowserRouter,
+  // Redirect,
+  // Switch
+} from "react-router-dom";
 import urls, { SECTIONS } from "../urls";
 import { cachableFetch } from "../hooks/useFetch";
 import ListenHistory from "../components/history/ListenHistory";
@@ -22,22 +26,25 @@ const Router = () => {
     <BrowserRouter>
       <Navigation />
       <NavigateTo />
-      <div className='historyContentWrapper' style={{display: "flex"}}>
-        <ListenHistory />          
+      <div className="historyContentWrapper" style={{ display: "flex" }}>
+        <ListenHistory />
+        {/* Switch now working by not specifed reasons */}
+        {/* <Switch> */}
         {SECTIONS.map((section, i) => {
-            const Component = News(urls[section]);
-            return (
-            <Fragment key={i + section}>
-                <SuspensedRoute exact path={`/${section}`}>
+          const Component = News(urls[section]);
+          return (
+            <Fragment key={i}>
+              <SuspensedRoute exact path={`/${section}`}>
                 <Component section={section} />
-                </SuspensedRoute>
-                <SuspensedRoute path={`/${section}/:id`} component={NewsItem} />
+              </SuspensedRoute>
+              <SuspensedRoute path={`/${section}/:id`} component={NewsItem} />
             </Fragment>
-            );
+          );
         })}
         {/* <Redirect from='/' to='/home'/> */}
         {/* <Route path='/notAuthorized' component={NotAuthorized}/> */}
-        {/* <Redirect to='/notAuthorized'/>        */}        
+        {/* <Redirect to='/notAuthorized'/> */}
+        {/* </Switch> */}
       </div>
     </BrowserRouter>
   );
