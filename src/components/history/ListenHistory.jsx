@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { newUrl } from "../../store/actions";
 import { getAllHistory } from '../../store/selectors';
+import { getPathWithoutSlash } from './helpers';
 
 const ListenHistory = () => {
   const location = useLocation()
@@ -23,7 +24,7 @@ const ListenHistory = () => {
         {
           allHistory.map((path,i) => {
             return <li key={i}>
-              <Link to={path}>{path}</Link>
+              <Link to={path}>{getPathWithoutSlash(path)}</Link>
             </li>
           })
         }

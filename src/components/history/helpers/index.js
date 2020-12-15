@@ -1,0 +1,1 @@
+export const getPathWithoutSlash = (path) => path.split('/').filter(v => v !== "/" && v !== '').join(" ")
